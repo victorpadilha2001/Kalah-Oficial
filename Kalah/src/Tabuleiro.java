@@ -26,7 +26,7 @@ public class Tabuleiro {
         System.out.println("(" + board[13] + ")");
         System.out.print("     ");
 
-        for (int x = 7; x<13 ; x++ ) {
+        for (int x = 7; x < 13; x++) {
             System.out.print(board[x]+" ");
         }
     }
@@ -42,8 +42,8 @@ public class Tabuleiro {
                 if(aux == 12){
                     aux = -1;
                 }
-                aux +=1;
-                board[aux] +=1;
+                aux += 1;
+                board[aux] += 1;
                 if (i == 1) {
                     CavaVazia(aux,vez);
                 }
@@ -64,10 +64,10 @@ public class Tabuleiro {
             }
         }
 
-        if(vez = true && aux == 6){  
+        if (vez = true && aux == 6) {
             repeteVez = true;
         }
-        if(vez == false && aux == 13){
+        if (vez == false && aux == 13) {
             repeteVez = true;
         }
 
@@ -76,18 +76,17 @@ public class Tabuleiro {
 
     public boolean verificaFim(Jogador j1, Jogador j2) {
         boolean fim=false;
-        if(board[0]==0 && board[1]==0 && board[2]==0 && board[3]==0 && board[4]==0 && board[5]==0){
+        if (board[0]==0 && board[1]==0 && board[2]==0 && board[3]==0 && board[4]==0 && board[5]==0) {
             System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
-        }else if(board[7]==0 && board[8]==0 && board[9]==0 && board[10]==0 && board[11]==0 && board[12]==0){
+        } else if (board[7]==0 && board[8]==0 && board[9]==0 && board[10]==0 && board[11]==0 && board[12]==0) {
             System.out.println("parabens o jogador " + j2.getNome() + "GANHOUUUUUU !!!!!!!!!");
         }
         return fim;
     }
 
-    public void CavaVazia(int cava, boolean vez){  //nao esta funcionandoy
-        boolean vazio = false;
+    public void CavaVazia(int cava, boolean vez) {  // nao esta funcionandoy
         int aux = 0;
-        if((vez == true && cava <=5) || (vez == false && cava >6)){
+        if ((vez == true && cava <=5) || (vez == false && cava >6)) {
 
             switch (cava) {
                 case 0:
@@ -126,15 +125,13 @@ public class Tabuleiro {
                 case 12:
                     aux = 0;
                     break;
-
                 default:
                     break;
             }
         
-            if(board[cava] == 1){
+            if (board[cava] == 1) {
                 board[cava] = board[cava] + board[aux];
-                board[aux]=0;
-                vazio = true;
+                board[aux] = 0;
             }
         }
     }
