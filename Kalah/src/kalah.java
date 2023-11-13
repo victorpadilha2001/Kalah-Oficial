@@ -16,7 +16,7 @@ public class kalah {
         vez = true;
 
         System.out.println();
-        System.out.println("bem vindo ao jogo KALAH");
+        System.out.println("bem vindo ao jogo KALAH !!!!!!");
         System.out.println();
         System.out.println("digite o nome do jogador 1");
         jogador1 = new Jogador(scan.nextLine());
@@ -27,9 +27,11 @@ public class kalah {
         tabuleiro.mostrarTabuleiro();
         System.out.println();
 
-        while(opcao != 2){
+        while(opcao != 10){
 
             if(vez){
+                System.out.println();
+                System.out.println();
                 System.out.println("vez do jogador: " + jogador1.getNome());
                 System.out.println("opcões: ");
                 System.out.println("- Escolher cava(digite entre 1-6)");
@@ -39,7 +41,6 @@ public class kalah {
 
                     cava = opcao;
                     repeteVez = tabuleiro.semear(cava-1,vez);
-                    tabuleiro.mostrarTabuleiro();
                     System.out.println();
                     if(repeteVez == true){
                         System.out.println("parabens, voce pode jogar novamente");
@@ -48,6 +49,9 @@ public class kalah {
                     }else{
                         vez = false;
                     }
+                    System.out.println();
+                    tabuleiro.mostrarTabuleiro();
+                    System.out.println();
 
                     if(tabuleiro.verificaFim(jogador2, jogador1)){
                         opcao = 10;
@@ -55,6 +59,8 @@ public class kalah {
                        
                 }
             }else{
+                System.out.println();
+                System.out.println();
                 System.out.println("vez do jogador: " + jogador2.getNome());
                 System.out.println("opcões: ");
                 System.out.println("- Escolher cava(digite entre 1-6)");
@@ -64,7 +70,6 @@ public class kalah {
 
                     cava = opcao;
                     repeteVez = tabuleiro.semear(cava+6,vez);
-                    tabuleiro.mostrarTabuleiro();
                     System.out.println();
                     if(repeteVez == true){
                         System.out.println("parabens, voce pode jogar novamente");
@@ -73,6 +78,9 @@ public class kalah {
                     }else{
                         vez = true;
                     }
+                    System.out.println();
+                    tabuleiro.mostrarTabuleiro();
+                    System.out.println();
 
                     if(tabuleiro.verificaFim(jogador1, jogador2)){
                         opcao = 10;

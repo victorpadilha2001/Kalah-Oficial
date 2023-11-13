@@ -12,6 +12,8 @@ public class Tabuleiro {
         }
         this.board[6]=0; //silo do jogador 1
         this.board[13]=0; // silo do jogador 2
+
+        //funTeste();
         
     }
 
@@ -53,13 +55,13 @@ public class Tabuleiro {
                 
             }
         }else{
-            for(int i = sementes; i>0; i--){  //ja faz a verificação caso a semente caia no silo inimigo
+            for(int i = sementes; i>0; i--){  
                 if(aux == 13){
                     aux = -1;
                 }
                 aux +=1;
                 board[aux] +=1;
-                if(i==0){
+                if(i==1){
                     CavaVazia(aux,vez);    
                 }
                 if(aux == 5){
@@ -68,10 +70,9 @@ public class Tabuleiro {
             }
         }
 
-        if(vez = true && aux == 6){  
+        if(vez == true && aux == 6){  
             repeteVez = true;
-        }
-        if(vez == false && aux == 13){
+        }else if(vez == false && aux == 13){
             repeteVez = true;
         }
 
@@ -116,9 +117,8 @@ public class Tabuleiro {
 
     public void CavaVazia(int cava, boolean vez){  //nao esta funcionandoy
 
-        boolean vazio = false;
         int aux = 0;
-        if((vez == true && cava <=5) || (vez == false && cava >6)){
+        if((vez == true && cava <=5) || (vez == false && cava >6 && cava<13)){
 
             switch (cava) {
                 case 0:
@@ -161,33 +161,24 @@ public class Tabuleiro {
                 default:
                     break;
             }
-
         
             if(board[cava] == 1){
                 board[cava] = board[cava] + board[aux];
                 board[aux]=0;
-                vazio = true;
             }
 
         }
         
-
     }
-
 
     public void funTeste(){
 
         board[5] = 9;
         board[0] = 0;
         board[1] = 0;
+        board[8] = 1;
+        board[9] = 0;
     }
-
-
-
-
-
-
-
 
 }
 
