@@ -63,12 +63,15 @@ public class Tabuleiro {
             for(int i = sementes; i>0; i--){  //distribui de acordo com a quantidade de sementes
 
                 if(aux == 13){  //reseta a contagem do tabuleiro
-                    j2.setPontos(j2.getPontos() + 1); //incrementa os pontos do jogador
                     aux = -1;
                 }
 
                 aux +=1;
                 board[aux] +=1;
+
+                if(aux == 13){  //incrementa os pontos do jogador
+                    j2.setPontos(j2.getPontos() + 1);
+                }
 
                 if(i==1){  //na ultima iterção verifica se rouba sementes do adversário
                     CavaVazia(aux,vez);    
@@ -99,16 +102,16 @@ public class Tabuleiro {
             if(j1.getPontos()>j2.getPontos()){ //verifica quem ganhou
                 System.out.println();
                 System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
-                System.out.println("o jogador possui " + j1.getPontos() + "pontos!!!!!!");
+                System.out.println("o jogador possui " + j1.getPontos() + " pontos!!!!!!");
             }else if(j1.getPontos()==j2.getPontos()){ //verifica empate
                 System.out.println();
                 System.out.println("O jogo EMPATOU !!!!!!!!!");
-                System.out.println("ambos os jogadores possuem " + j1.getPontos() + "pontos");
+                System.out.println("ambos os jogadores possuem " + j1.getPontos() + " pontos");
                 System.out.println();
             }else{  
                 System.out.println();
                 System.out.println("parabens o jogador " + j2.getNome() + "GANHOUUUUUU !!!!!!!!!");
-                System.out.println("o jogador possui " + j2.getPontos() + "pontos!!!!!!");
+                System.out.println("o jogador possui " + j2.getPontos() + " pontos!!!!!!");
                 System.out.println();
             }
         
@@ -118,16 +121,16 @@ public class Tabuleiro {
            if(j1.getPontos()>j2.getPontos()){ //verifica quem ganhou
                 System.out.println();
                 System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
-                System.out.println("o jogador possui " + j1.getPontos() + "pontos!!!!!!");
+                System.out.println("o jogador possui " + j1.getPontos() + " pontos!!!!!!");
             }else if(j1.getPontos()==j2.getPontos()){ //verifica empate
                 System.out.println();
                 System.out.println("O jogo EMPATOU !!!!!!!!!");
-                System.out.println("ambos os jogadores possuem " + j1.getPontos() + "pontos");
+                System.out.println("ambos os jogadores possuem " + j1.getPontos() + " pontos");
                 System.out.println();
             }else{  
                 System.out.println();
                 System.out.println("parabens o jogador " + j2.getNome() + "GANHOUUUUUU !!!!!!!!!");
-                System.out.println("o jogador possui " + j2.getPontos() + "pontos!!!!!!");
+                System.out.println("o jogador possui " + j2.getPontos() + " pontos!!!!!!");
                 System.out.println();
             }
         }
@@ -141,9 +144,7 @@ public class Tabuleiro {
         //verifica se a situação é possivel
         if((vez == true && cava <=5) || (vez == false && cava >6 && cava<13)){  //faz a comparação para ver se a ultima semente caiu no lado correto do tabuleiro
             
-
-           aux = 12-cava;
-            
+           aux = 12-cava;  
             
             if(board[cava] == 1){ //caso a cava esteja vazia
                 board[cava] = board[cava] + board[aux]; //incrementa na cava as sementes da cava oposta
@@ -154,14 +155,7 @@ public class Tabuleiro {
         
     }
 
-    public void funTeste(){
-
-        board[5] = 9;
-        board[0] = 0;
-        board[1] = 0;
-        board[8] = 1;
-        board[9] = 0;
-    }
+   
 
 }
 
