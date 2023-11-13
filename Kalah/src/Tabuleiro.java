@@ -82,10 +82,33 @@ public class Tabuleiro {
     public boolean verificaFim(Jogador j1, Jogador j2){
 
         boolean fim=false;
+        j1.setPontos(board[6]);
+        j2.setPontos(board[13]);
         if(board[0]==0 && board[1]==0 && board[2]==0 && board[3]==0 && board[4]==0 && board[5]==0){
-            System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
+
+            if(j1.getPontos()>j2.getPontos()){
+                System.out.println();
+                System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
+                System.out.println("o jogador possui " + j1.getPontos() + "pontos!!!!!!");
+            }else{
+                System.out.println();
+                System.out.println("parabens o jogador " + j2.getNome() + "GANHOUUUUUU !!!!!!!!!");
+                System.out.println("o jogador possui " + j2.getPontos() + "pontos!!!!!!");
+                System.out.println();
+            }
+        
+            
         }else if(board[7]==0 && board[8]==0 && board[9]==0 && board[10]==0 && board[11]==0 && board[12]==0){
-            System.out.println("parabens o jogador " + j2.getNome() + "GANHOUUUUUU !!!!!!!!!");
+            if(j1.getPontos()>j2.getPontos()){
+                System.out.println();
+                System.out.println("parabens o jogador " + j1.getNome() + "GANHOUUUUUU !!!!!!!!!");
+                System.out.println("o jogador possui " + j1.getPontos() + "pontos!!!!!!");
+            }else if(j1.getPontos()==j2.getPontos()){
+                System.out.println();
+                System.out.println("O jogo EMPATOU !!!!!!!!!");
+                System.out.println("ambos os jogadores possuem " + j1.getPontos() + "pontos");
+                System.out.println();
+            }
         }
 
         return fim;
